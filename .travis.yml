@@ -1,8 +1,12 @@
 ---
 language: ruby
+env:
+  global:
+    - "RACK_ENV=test"
 rvm:
   - 2.1.1
 before_install:
   - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
 script:
-  - bundle exec rake && bundle exec rake konacha:run
+  - bundle exec rake
+  - RACK_ENV=test bundle exec rake konacha:run
