@@ -1,8 +1,8 @@
 GIT
   remote: git://github.com/kristianmandrup/ember-konacha-rails.git
-  revision: 74d6eb81417023cead3e722dfe50387a17fecd96
+  revision: 50396c196a9c680e7ee1283107cf473c8baf386c
   specs:
-    ember-konacha-rails (0.1.1)
+    ember-konacha-rails (0.2.0)
       httparty (>= 0.9)
       konacha
       rails (>= 3.1)

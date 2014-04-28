@@ -8,5 +8,4 @@ rvm:
 before_install:
   - "echo 'gem: --no-ri --no-rdoc' > ~/.gemrc"
 script:
-  - bundle exec rake
-  - RACK_ENV=test bundle exec rake konacha:run
+  - RACK_ENV=test bundle exec rake konacha:run && bundle exec rake
