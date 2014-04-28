@@ -7,3 +7,4 @@
 
 # for more details see: http://emberjs.com/guides/application/
 window.Admin = Ember.Application.create()
+Admin.deferReadiness()

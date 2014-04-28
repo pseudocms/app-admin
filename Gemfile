@@ -12,8 +12,18 @@ group :development do
   gem 'spring'
 end
 
-group :assets do
+group :development, :test do
+  gem 'ember-konacha-rails', github: 'kristianmandrup/ember-konacha-rails'
+  gem "konacha"
+  gem "poltergeist"
+  gem "selenium-webdriver"
+  gem "guard"
+  gem "guard-konacha"
+end
+
+group :development, :test, :assets do
   gem 'sass-rails', '~> 4.0.3'
-  gem 'uglifier', '>= 1.3.0'
   gem 'coffee-rails', '~> 4.0.0'
+  gem 'uglifier', '>= 1.3.0'
+  gem 'phantomjs'
 end
