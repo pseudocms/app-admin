@@ -1,0 +1,4 @@
+#!/bin/bash
+set -ex
+[ -f config/application.yml ] || cp config/application.yml.example config/application.yml
+bundle install --without production
