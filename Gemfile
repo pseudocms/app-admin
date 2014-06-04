@@ -8,6 +8,8 @@ gem 'ember-rails'
 gem 'ember-source'
 gem 'font-awesome-rails'
 
+gem 'figaro', github: 'laserlemon/figaro'
+
 group :development do
   gem 'spring'
 end
