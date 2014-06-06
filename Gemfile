@@ -15,12 +15,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'ember-konacha-rails', github: 'kristianmandrup/ember-konacha-rails'
-  gem "konacha"
-  gem "poltergeist"
-  gem "selenium-webdriver"
-  gem "guard"
-  gem "guard-konacha"
+  gem 'teaspoon'
 end
 
 group :development, :test, :assets do
