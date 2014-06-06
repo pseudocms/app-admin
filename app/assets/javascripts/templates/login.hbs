@@ -1,0 +1,24 @@
+<div class="login-form">
+  <form {{action login on="submit"}}>
+    <ul>
+      <li>
+        <h2>Please Login</h2>
+        <span class="required-notification">* denotes a required field</span>
+      </li>
+      {{#if errorMessage}}
+      <li class="error">{{errorMessage}}</li>
+      {{/if}}
+      <li>
+        <label for="username">Username:</label>
+        {{input type="email" value=username placeholder="user@example.com" required=true}}
+      </li>
+      <li>
+        <label for="password">Password:</label>
+        {{input type="password" value=password required="true"}}
+      </li>
+      <li>
+        <button>Login</button>
+      </li>
+    </ul>
+  </form>
+</div>
