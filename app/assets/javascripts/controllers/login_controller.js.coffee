@@ -16,6 +16,9 @@ Admin.LoginController = Ember.Controller.extend
         dataType: 'json'
         context: this
 
+      op.always ->
+        @set('password', null)
+
       op.done (response) ->
         @set('errorMessage', response.message)
 

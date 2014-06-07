@@ -10,7 +10,7 @@ form {
   *:focus { outline: none }
 
   h2, label {
-    ont-family: Georgia, Times, "Times New Roman", serif;
+    font-family: Georgia, Times, "Times New Roman", serif;
   }
 
   ul {
@@ -30,6 +30,7 @@ form {
 
       &.error {
         color: #f00;
+        font-style: italic;
       }
     }
   }
