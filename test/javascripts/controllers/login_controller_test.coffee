@@ -1,28 +1,28 @@
 moduleFor("controller:login", "Login Controller:")
 
-test "#reset clears username, password and errorMessage properties", ->
+test "#reset clears email, password and errorMessage properties", ->
   controller = @subject()
   controller.setProperties
-    username: 'username'
+    email: 'username'
     password: 'password'
     errorMessage: 'errorMessage'
 
   controller.reset()
 
-  equal controller.get('username'), '', 'Username is blank'
+  equal controller.get('email'), '', 'Email is blank'
   equal controller.get('password'), '', 'Password is blank'
   equal controller.get('errorMessage'), '', 'Error message is blank'
 
 test "login action set tokens on successful login", ->
   controller = @subject()
   controller.setProperties
-    username: 'gooduser'
+    email: 'gooduser'
     password: 'goodpassword'
 
   server.respondWith('POST', '/auth.json', [
     200,
     { 'Content-Type': 'application/json' },
-    JSON.stringify(token: '12345')
+    JSON.stringify(access_token: '12345')
   ])
 
   sinon.stub(controller, 'transitionToRoute')
@@ -34,13 +34,13 @@ test "login action set tokens on successful login", ->
 test "login action sets error message when login fails", ->
   controller = @subject()
   controller.setProperties
-    username: 'baduser'
+    email: 'baduser'
     password: 'badpass'
 
   server.respondWith('POST', '/auth.json', [
     200,
     { 'Content-Type': 'application/json' },
-    JSON.stringify(message: 'error happened!')
+    JSON.stringify(error_description: 'error happened!')
   ])
 
   controller.send('login')

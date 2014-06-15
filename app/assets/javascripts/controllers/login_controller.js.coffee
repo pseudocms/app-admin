@@ -1,10 +1,11 @@
 Admin.LoginController = Ember.Controller.extend
   reset: ->
     @setProperties
-      username: ''
+      email: ''
       password: ''
       errorMessage: ''
 
+  # rename token and errorMessage for CMSAPI
   actions:
     login: ->
       @set('errorMessage', null)
@@ -12,7 +13,7 @@ Admin.LoginController = Ember.Controller.extend
       op = $.ajax
         url: '/auth.json'
         type: 'POST'
-        data: { user: @getProperties('username', 'password') }
+        data: { user: @getProperties('email', 'password') }
         dataType: 'json'
         context: this
 
@@ -20,10 +21,10 @@ Admin.LoginController = Ember.Controller.extend
         @set('password', null)
 
       op.done (response) ->
-        @set('errorMessage', response.message)
+        @set('errorMessage', response.error_description)
 
-        if response.token
-          @set('token', response.token)
+        if response.access_token
+          @set('token', response.access_token)
           transition = @get('attemptedTransition')
           if transition
             transition.retry()
