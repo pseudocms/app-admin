@@ -12,7 +12,7 @@ Admin.LoginController = Ember.Controller.extend
       op = $.ajax
         url: '/auth.json'
         type: 'POST'
-        data: @getProperties('username', 'password')
+        data: { user: @getProperties('username', 'password') }
         dataType: 'json'
         context: this
 
