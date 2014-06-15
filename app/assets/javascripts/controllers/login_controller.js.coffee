@@ -1,4 +1,9 @@
 Admin.LoginController = Ember.Controller.extend
+  token: localStorage['pseudocms.token']
+  tokenChanged: (->
+    localStorage['pseudocms.token'] = @get('token')
+  ).observes('token')
+
   reset: ->
     @setProperties
       email: ''

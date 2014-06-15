@@ -7,3 +7,7 @@ Admin.AuthenticatedRoute = Ember.Route.extend
     controller = @controllerFor('login')
     controller.set('attemptedTransition', transition)
     @transitionTo('login')
+
+  actions:
+    error: (reason, transition) ->
+      redirectToLogin(transition) if reason.status is 401
