@@ -9,5 +9,9 @@ Admin.AuthenticatedRoute = Ember.Route.extend
     @transitionTo('login')
 
   actions:
+    logout: ->
+      @controllerFor('login').signOut()
+      window.location.reload()
+
     error: (reason, transition) ->
-      redirectToLogin(transition) if reason.status is 401
+      @redirectToLogin(transition) if reason.status is 401

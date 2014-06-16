@@ -1,7 +1,13 @@
+TOKEN_KEY = 'pseudocms.token'
+
 Admin.LoginController = Ember.Controller.extend
-  token: localStorage['pseudocms.token']
+  token: localStorage[TOKEN_KEY]
   tokenChanged: (->
-    localStorage['pseudocms.token'] = @get('token')
+    token = @get('token')
+    if token
+      localStorage[TOKEN_KEY] = token
+    else
+      delete localStorage[TOKEN_KEY]
   ).observes('token')
 
   reset: ->
@@ -9,6 +15,9 @@ Admin.LoginController = Ember.Controller.extend
       email: ''
       password: ''
       errorMessage: ''
+
+  signOut: ->
+    @set('token', '')
 
   # rename token and errorMessage for CMSAPI
   actions:

@@ -13,6 +13,13 @@ test "#reset clears email, password and errorMessage properties", ->
   equal controller.get('password'), '', 'Password is blank'
   equal controller.get('errorMessage'), '', 'Error message is blank'
 
+test "#signOut clears token", ->
+  controller = @subject()
+  controller.set('token', 'some token')
+  controller.signOut()
+
+  ok !controller.get('token'), 'Token is null'
+
 test "login action set tokens on successful login", ->
   controller = @subject()
   controller.setProperties
