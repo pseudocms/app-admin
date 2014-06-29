@@ -1,4 +1,4 @@
-<div class="page">
+<div {{bind-attr class=":page currentPath"}}>
   <aside id="navigation">
     <div class="top">
       <div id="profile">
@@ -6,7 +6,7 @@
           src="http://www.gravatar.com/avatar/2cf9c90cc7eb61ee14be216aea33a2be.png?size=60"
           alt="David Muto">
         <h1 id="title">Signed In</h1>
-        <a href="#" {{action 'invalidateSession'}}>logout</a>
+        <button {{action 'logout'}}>logout</button>
       </div>
 
       <nav>
